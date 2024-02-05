@@ -8,5 +8,11 @@ If you are already familiar with PyTorch, start directly with Labs 1b and 1c. Th
 
 | Lab | Topic | Link |
 |:---:|:---:|:---:|
-| 1a | Deep Learning with PyTorch: A 60 Minute Blitz  (Tensors, Autograd, NNs, Classifiers) | [Click Me!](https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html) |
+| 1a | Deep Learning with PyTorch: A 60 Minute Blitz  (Tensors, Autograd, NNs, Classifiers) | [Part 1][1], [Part 2][2], [Part 3][3], [Part 4][4] |
 | 1b | Convolutional Neural Networks | [Click Me!](./lab01b.ipynb) |
+| 1c | Transformers | [Click Me!](./lab01c.ipynb) |
+
+[1]: ./lab01a_01_tensor_tutorial.ipynb
+[2]: ./lab01a_02_autograd_tutorial.ipynb
+[3]: ./lab01a_03_neural_networks_tutorial.ipynb
+[4]: ./lab01a_04_cifar10_tutorial.ipynb
