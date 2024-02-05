@@ -1,7 +1,6 @@
 *.zip
-*/data/*
 .DS_Store
-
+lab01/data/*
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -16,7 +16,7 @@ MLFLow is an end-to-end platform with several components and be used for much mo
 - [Prompt Engineering UI][6]: A dedicated UI for experimenting, refining, and evaluating prompts.
 - [Recipes][7]: Blueprints for structuring (real-world) ML projects and deployments.
 
-In this lab, we will see the first four components. The LLM-related tooling will follow at a later stage.
+In this lab, we will primarily be using the Tracking. Other components follow in future Labs.
 
 ## The MLflow UI
 
@@ -30,16 +30,15 @@ This will start an MLFlow tracking server, its UI and all the other necessary co
 
 ![MLFlow UI](imgs/image.png)
 
-As you can see, there are two tabs: one for experiments and one for models. In the subsequent sections, we will 
+As you can see, there are two tabs: one for experiments and one for models. In the subsequent sections, we will introduce the various components, so keep the MLflow instance running.
 
 ##  What you will learn
 
 | Topic                 | Notebook |
 |-----------------------|----------|
-| Experiment tracking   | [Tracking][1] |
-| Model evaluation      | [Evaluate][2] |
-| Model registry        | [Model Registry][3] |
-| MLflow projects       | [Projects][4] |
+| Experiment tracking with MLflow  | [Tracking](mlflow_tracking.ipynb) |
+| Hyperparameter tuning with  Ray Tune | [Tuning](hyperparameters.ipynb) |
+| Hyperparameter tuning a teeny tiny diffusion model| [Diffusing](diffusion.ipynb)|
 
 [1]: https://mlflow.org/docs/latest/tracking.html#tracking
 [2]: https://mlflow.org/docs/latest/models.html#model-evaluation
