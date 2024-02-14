@@ -9,9 +9,9 @@ import pytorch_lightning as pl
 import torch
 from torch.utils.data import ConcatDataset, DataLoader
 
-from lib import util
-from lib.data.util import BaseDataset
-import lib.metadata.shared as metadata
+from src import util
+from src.data.util import BaseDataset
+import src.metadata.shared as metadata
 
 
 def load_and_print_info(data_module_class) -> None:

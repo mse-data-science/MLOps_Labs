@@ -1,6 +1,6 @@
 """Metadata for the MNIST dataset."""
 
-import lib.metadata.shared as shared
+import src.metadata.shared as shared
 
 DOWNLOADED_DATA_DIRNAME = shared.DOWNLOADED_DATA_DIRNAME
 

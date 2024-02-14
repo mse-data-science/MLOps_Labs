@@ -5,9 +5,9 @@ import argparse
 from torch.utils.data import random_split
 from torchvision.datasets import MNIST as TorchMNIST
 
-from lib.data.base_data_module import BaseDataModule, load_and_print_info
-import lib.metadata.mnist as metadata
-from lib.stems.image import MNISTStem
+from src.data.base_data_module import BaseDataModule, load_and_print_info
+import src.metadata.mnist as metadata
+from src.stems.image import MNISTStem
 
 
 class MNIST(BaseDataModule):

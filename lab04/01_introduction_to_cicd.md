@@ -87,7 +87,7 @@ Now that you've seen what a workflow looks like, it is time to build your own. I
 
 ## Setup
 
-Unfortunately, GitHub Actions are disabled on the ZHAW GitHub instance. For simplicity, we are going to use `act`, a local runner / emulator for GitHub actions.
+Unfortunately, GitHub Actions are disabled on the ZHAW GitHub instance. For simplicity, we are going to use `act`, a local runner / emulator for GitHub actions, but you are of course free to use [github.com](https://github.com/) if you want to.
 `act` supports Windows, macOS, and Linux. To install `act`, follow the instructions [here](https://nektosact.com/installation/index.html). `act` requires Docker (or any other container engine) - don't worry, the installation instructions also cover this part and you won't have to interact with docker beyond installing it.
 
 ### What does `act` do?
@@ -129,11 +129,11 @@ jobs:
         run: python -c "import sys; print(sys.version)"
 ```
 
-You can find this workflow in `lab04/.github/workflows/python_demo.yaml`.
+You can find this workflow in `lab04/.github/github_actions_intro/workflows/python_demo.yaml`.
 We can run it with `act` by issuing the following command in the `lab04` directory:
 
 ```shell
-act push -W workflows
+act push -W github_actions_intro/workflows
 ```
 
 `act push` simulates a push to your github repository.
@@ -143,7 +143,7 @@ If you are running on macOS with an ARM processor (M1, M2, M3, maybe more by the
 
 ### Your turn: Install dependencies
 
-Copy or modify `lab04/.github/workflows/python_demo.yaml`. Add a step that updates `pip`.
+Copy or modify `lab04/.github/github_actions_intro/workflows/python_demo.yaml`. Add a step that updates `pip`.
 
 <details>
   <summary>Hint</summary>
@@ -156,7 +156,7 @@ python -m pip install --upgrade pip
 
 </details>
 
-Next, install `lab04/requirements.txt`.
+Next, install `lab04/github_actions_demo/requirements.txt`.
 To add a new command, you can either repeat the `run` key
 
 ```yaml
