@@ -10,8 +10,8 @@ This is the repository for the labs/tutorials of the lecture Machine Learning Op
 | Lab 02 | A chatbot with 🤗 Transformers and Streamlit                                                  | [Lab 02](lab02/README.md) |
 | Lab 03 | Experiment management and hyperparameter tuning your own diffusion model.                     | [Lab 03](lab03/README.md) |
 | Lab 04 | CI/CD for code, models, and data.                                                             | [Lab 04](lab04/README) |
-| Lab 05 | _Coming soon_                                                                                 | [Lab 05](lab05/README.md) |
-| Lab 06 | From notebooks to pipelines to batch processing: A coffee analytics case study in three acts. | [Lab 06](lab06/README.md) |
+| Lab 05 | From notebooks to pipelines to batch processing: A coffee analytics case study in three acts. | [Lab 05](lab05/README.md) |
+| Lab 06 | _Coming soon_                                                                                 | [Lab 06](lab06/README.md) |
 | Lab 07 | _Coming soon_                                                                                 | [Lab 07](lab07/README.md) |
 
 ## Setup
