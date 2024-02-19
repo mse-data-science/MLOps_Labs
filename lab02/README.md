@@ -5,7 +5,7 @@ This will change today, as you get to play with pretrained transformers!
 
 We are going to build the one and only true demo application for a pretrained transformer: a chatbot. You will be using the Hugging Face `transformers` library and `streamlit`, a library to create web apps for machine learning and data science.
 
-To bring you up to speed with `transformers`, we have prepared a notebook for you. It will cover the basics of downloading and interacting with pretrained transformers, as well as some foundational prompt engineering: [transformers.ipynb](notebooks/transformers.ipynb).
+To bring you up to speed with `transformers`, we have prepared a notebook for you. It will cover the basics of downloading and interacting with pretrained transformers, as well as some foundational prompt engineering: [transformers.ipynb](notebooks/transformers.ipynb) ([solution](notebooks/transformers_solution.ipynb)).
 
 ## Building beautiful UIs for you data science application
 
