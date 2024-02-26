@@ -292,7 +292,7 @@ The `Context` object contains the basic objects deepchecks uses - the train and 
 
 For more examples of using the Context and Batch objects for different types of base checks, see the Custom Check Templates guide.
 
-You can find a skeleton in `deepchecks_advanced/check_attack.py`. Follow the instructions given in the file to implement the check.
+You can find a skeleton in `deepchecks_advanced/check_attack.py`. Follow the instructions given in the file to implement the check. Then, use your new check in `deepchecks_advanced/test.py`. Again, follow the `TODO`s.
 
 ---
 
@@ -314,8 +314,13 @@ The final two sections introduce you to two tools that enhance CI/CD pipelines f
 
 [Continuous Machine Learning (CML)](https://cml.dev) is a tool that extends common CI/CD solutions (GitHub Actions, GitLab CI/CD, and even Bitbucket Pipelines) to machine learning. The idea behind CML is that you use the CI/CD pipeline for training and evaluating your models in the same way that you use them to build and test your code. The `deepchecks` pipeline from above could be enhanced as follows:
 
-TODO: Change this!
+Deepchecks can export a CML report. All that one has to change is to add the following line:
 
+```python
+result.save_as_cml_markdown(file='report.md', format='github')
+```
+
+Then, to actually use `cml`, we can use their GitHub Action in our workflow:
 ```yaml
 name: CML
 on: [push]
@@ -343,9 +348,8 @@ jobs:
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          python test.py
           # Post CML report as a comment in GitHub
-          cat metrics.txt >> report.md
-          echo '![](./plot.png "Confusion Matrix")' >> report.md
           cml comment create report.md
 ```
 
@@ -354,7 +358,7 @@ This workflow does the following:
 1. Set up CML in the GitHub actions workflow.
 2. Checkout the code.
 3. Install dependencies and execute `train.py`.
-4. Report metrics and plots created during training to GitHub.
+4. Run `test.py` and report the metrics and plots created during training to GitHub.
 
 The only part where CML really comes into play here is the last step: CML makes it easy to generate reports in response to changes. `cml comment create` posts a markdown report as a comment on a commit, pull/merge request, or issue. The result looks like the image below.
 
@@ -375,8 +379,6 @@ SkyPilot abstracts away the cloud infrastructure (deploying VMs or clusters, all
 
 Using SkyPilot, the training job in our pipeline from above would looks something like the yaml snippet below:
 
-TODO: Change this!
-
 ```yaml
 # Declare which resources (e.g. GPUs you want)
 resources:
@@ -387,18 +389,18 @@ num_nodes: 1  # Number of VMs to launch
 
 # Working directory (optional) containing the project codebase.
 # Its contents are synced to ~/sky_workdir/ on the cluster.
-workdir: ~/torch_examples
+workdir: ~/deepchecks_advanced
 
 # Commands to be run before executing the job.
 # Typical use: pip install -r requirements.txt, git clone, etc.
 setup: |
-  pip install "torch<2.2" torchvision --index-url https://download.pytorch.org/whl/cu121
+  pip install "torch torch-vision deepchecks"
 
 # Commands to run as a job.
 # Typical use: launch the main program.
 run: |
-  cd mnist
-  python main.py --epochs 1
+  python train.py
+  python test.py
 ```
 
 Then, the workflow becomes:
@@ -428,7 +430,5 @@ jobs:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Post CML report as a comment in GitHub
-          cat metrics.txt >> report.md
-          echo '![](./plot.png "Confusion Matrix")' >> report.md
           cml comment create report.md
 ```
