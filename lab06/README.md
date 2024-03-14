@@ -23,7 +23,6 @@ For each of the topics we have prepared separate sections, which you can find be
 |More data! (Augmentation by Albumentation)| [Click me](./notebooks/albumentations.ipynb)|
 |Even more data! (Synthetic data)||
 
-
 ## Recommended Reading
 
 Today's lab might be over, but there's still a lot that we haven't covered.
