@@ -332,4 +332,75 @@ you will get the response you obtained in the first version of the service. Howe
 
 ### Scaling our service
 
-### Packaging up a service
+In the introduction, we contemplated that a service built around PyTorch wrapped in a rest API is difficult to scale.
+`MLServer` comes with a range of features to scale your service and improve its performance.
+We've previously mentioned that some runtimes offer optimized implementations.
+Below, we will take a look at another two performance-enhancing features.
+
+#### Parallel inference
+
+Out of the box, `MLServer` offers support to offload inference workloads to a pool of workers running in separate processes.
+This enables `MLServer` to scale beyond a single Python interpreter.
+
+![Parallel inference](./imgs/parallel-inference.svg)
+
+By default, `MLServer` spins up a pool with a single worker. To change this, we can set the `parallel_workers` field in
+`settings.json`. This field controls the size of the inference pool.
+
+```json
+{
+    "parallel_workers": 4
+}
+```
+
+Setting `parallel_workers` to `N > 0`, will create a pool with `N` workers. `N = 0` disables the parallel inference feature
+and all inference will happen within the main `MLServer` process.
+
+Keep in mind that there is no free lunch! The main `MLServer` process and the inference pool worker workers communicate via an
+Inter-Process Communication protocol. This introduces overhead into the system. You can learn more about Parallel Inference in the
+[`MLServer` documentation](https://mlserver.readthedocs.io/en/latest/user-guide/parallel-inference.html#user-guide-parallel-inference--page-root).
+
+#### Adaptive batching
+
+`MLServer` includes a feature called adaptive batching. This feature allows `MLServer` to batch multiple requests together on the fly.
+Why is this useful? There are two main reasons:
+
+1. **Resource usage maximization**: GPU operations are vectorized. This means that these operations are designed to operate across batches. Batching requests together can help to maximize the utilization of the underlying hardware by  using its full capacity.
+2. **Overhead minimization**: There is a constant overhead associated with processing each request. By batching requests together, we can amortize this overhead across multiple requests.
+
+Again, there is no free lunch. These benefits only scale up to a certain point. This point is determined by the infrastructure, the model, the machine learning framework - and likely many other factors. As such, it is imperative to experiment with the settings to find the optimal configuration for your use case.
+
+To enable adaptive batching, you can set the `max_batch_size` and `max_batch_time` fields in `settings.json`.
+
+```json
+{
+    "max_batch_size": 4,
+    "max_batch_time": 0.1
+}
+```
+
+- **`max_batch_size`**: The maximum number of requests that can be batched together. `N > 1` enables adaptive batching. `N = 1` or `N = 0` disables adaptive batching.
+- **`max_batch_time`**: The maximum time `MLServer` will wait for a batch to fill up before processing the batch. The expected value is in seconds. `T > 0` will wait `T` seconds at most. `T = 0` disables adaptive batching.
+
+### Packaging up a service and shipping it
+
+We can go one step further and package our service into a Docker container. This allows us to ship our service to any environment that supports Docker.
+
+To do this, all we need is a `requirements.txt` file. This file should contain all the dependencies required to run our service. In our case, we can simply export the `env.yaml` file we used to create our environment and add it to `lab07/tinyvit`.
+
+```shell
+mamba list -e > requirements.txt
+```
+
+Then, use `mlserver build` to build the Docker image.
+
+```shell
+mlserver build tinyvit/ -t tinyvit
+```
+
+where `tinyvit/` is the path to the directory containing the `model-settings.json` and `serve-model.py` files.
+`-t` is the tag for the Docker image.
+
+What do we do with the Docker image? We can run it locally, push it to a container registry, or deploy it to a cloud provider.
+Even better, we can leverage some of the most popular Kubernetes serving frameworks to scale our service beyond a single machine!
+We won't go into the details of how to do this in this lab, but you can find more information in the [`MLServer` documentation](https://mlserver.readthedocs.io/en/latest/user-guide/deployment/index.html). Maybe this is something you want to explore in your own projects. ;)

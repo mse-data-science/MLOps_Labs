@@ -157,6 +157,8 @@ So far, we've really only seen the _act_ and _assert_ steps. In the next section
 
 A fixture provides a defined, reliable and consistent context for the tests. This could include environment (for example a database configured with known parameters) or content (such as a dataset). Fixtures define the steps and data that constitute the _arrange_ phase of a test.
 
+If you have ever written unit tests in another programming language, chances are that you have come across xUnit (e.g. in Java or C#). In this case, you may be wondering why one would ever want to use fixtures over setup/teardown functions. [You can find a comparison of the two in the docs](https://docs.pytest.org/en/7.1.x/explanation/fixtures.html#improvements-over-xunit-style-setup-teardown-functions)!
+
 In `pytest`, the services, state, or other operating environments (the _context_ of a test) set up by fixtures are accessed by test functions through arguments. For each fixture used by a test function there is typically a parameter (named after the fixture) in the test function’s definition.
 
 `pytest` fixtures are functions decorated with [`@pytest.fixture`](https://docs.pytest.org/en/7.1.x/reference/reference.html#pytest.fixture). Consider the following example taken from the `pytest` documentation:
@@ -192,9 +194,6 @@ def test_my_fruit_in_basket(my_fruit, fruit_basket):
 
 Here, `my_fruit` and `fruit_basket` are fixtures. As you can see, the `test_my_fruit_in_basket` test case has arguments `my_fruit` and `fruit_basket`, both of which are fixtures! `pytest` automagically passes in the correct fixture.
 
-#### Fixtures vs. other paradigms
-
-If you have ever written unit tests in another programming language, chances are that you have come across xUnit (e.g. in Java or C#). In this case, you may be wondering why one would ever want to use fixtures over setup/teardown functions. [You can find a comparison of the two in the docs](https://docs.pytest.org/en/7.1.x/explanation/fixtures.html#improvements-over-xunit-style-setup-teardown-functions)!
 
 ### Marks
 
