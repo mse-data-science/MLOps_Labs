@@ -90,6 +90,9 @@ Now that you've seen what a workflow looks like, it is time to build your own. I
 Unfortunately, GitHub Actions are disabled on the ZHAW GitHub instance. For simplicity, we are going to use `act`, a local runner / emulator for GitHub actions, but you are of course free to use [github.com](https://github.com/) if you want to.
 `act` supports Windows, macOS, and Linux. To install `act`, follow the instructions [here](https://nektosact.com/installation/index.html). `act` requires Docker (or any other container engine) - don't worry, the installation instructions also cover this part and you won't have to interact with docker beyond installing it.
 
+The first time you run `act`, you will be prompted to select a container size. Select `Medium`.
+If you are running on macOS with an ARM processor (M1, M2, M3, maybe more by the time you are reading this), you will have to add the flag `--container-architecture linux/amd64` to make the docker happy.
+
 ### What does `act` do?
 
 In their own words,
@@ -98,7 +101,7 @@ In their own words,
 
 ## A workflow for python
 
-Below you see a simple workflow for python, taken from the [official documentation page]():
+Below you see a simple workflow for python, taken from the [official documentation page](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python#testing-your-code):
 
 ```yaml
 name: Python package
@@ -137,9 +140,6 @@ act push -W github_actions_intro/workflows
 ```
 
 `act push` simulates a push to your github repository.
-
-The first time you run `act`, you will be prompted to select a container size. Select `Medium`.
-If you are running on macOS with an ARM processor (M1, M2, M3, maybe more by the time you are reading this), you will have to add the flag `--container-architecture linux/amd64` to make the docker happy.
 
 ### Your turn: Install dependencies
 
