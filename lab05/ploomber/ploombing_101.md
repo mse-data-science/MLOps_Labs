@@ -81,7 +81,7 @@ While this section covers everything that we need for the purpose of this lab, t
 
 ### Tasks: Scripts & Notebooks
 
-One way of specifying tasks is using scripts or notebooks. You can find an example pipeline to follow along in `lab02/ploomber/scripts`.
+One way of specifying tasks is using scripts or notebooks. You can find an example pipeline to follow along in `5/ploomber/scripts`.
 
 Jupyter notebooks files (.ipynb) contain both code and output; while convenient, keeping code and outputs in the same file makes version control (i.e., git) difficult. Ploomber thus recommends using scripts but will copy and convert your scripts to notebooks. This allows you to still have the benefits on notebooks when debugging the pipeline.
 
@@ -137,7 +137,7 @@ tasks:
 
 Functions can be tasks too!
 
-You can find an example pipeline to follow along in `lab02/ploomber/functions`.
+You can find an example pipeline to follow along in `lab05/ploomber/functions`.
 
 #### `upstream` and `product`
 
@@ -162,7 +162,6 @@ def clean(product, upstream):
 ```
 
 > When resolving dependencies, Ploomber will look for references such as upstream['task_name'], then, during execution, Ploomber will pass the requested inputs. For example, upstream={'task_name': 'path/to/product/from/upstream.csv'}
-
 
 ## Refactoring legacy notebooks
 

@@ -41,6 +41,8 @@ However, as mentioned in the introduction, managing Airflow is out of scope for 
 airflow standalone
 ```
 
+Note that it matters where you start this command. Airflow will look for DAGs in the current working directory. If you want to start it in a specific directory, you can set the `AIRFLOW_HOME` environment variable to the desired directory. More on this later.
+
 This command initializes the database, creates a user, and starts all the components.
 Once that's done, take note of the username and password, you can access the Airflow UI by visiting `localhost:8080`.
 Head over to the _DAGs_ tab. It lists all DAGs in the Airflow DAG folder - in this case, all DAGs in the Airflow examples. By default, they are all disabled, as you can tell from the toggle switches on the left hand side of the UI.
@@ -91,14 +93,14 @@ Here you see the following:
   - [TaskFlow-decorated](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/taskflow.html) `@task`s, which are custom Python functions packaged up as a Task.
 - \>> between the tasks defines a dependency and controls in which order the tasks will be executed
 
-You can also find this DAG in `lab02/airflow/dags/dag_snippet.py`.
-Stop your current `airflow standalone` and change into `lab02/airflow`. Now, restart airflow but this time in the context of your current working directory:
+You can also find this DAG in `lab05/airflow/dags/dag_snippet.py`.
+Stop your current `airflow standalone` and change into `lab05/airflow`. Now, restart airflow but this time in the context of your current working directory:
 
 ```shell
 AIRFLOW_HOME=`pwd` airflow standalone
 ```
 
-`AIRFLOW_HOME` is root directory for the Airflow content. This is the default parent directory for Airflow assets such as DAGs and logs. If not specified otherwise, Airflow will search `$AIRFLOW_HOME/dags` for DAG files. In our case, thi `lab02/airflow/dags/`, so it will find `dag_snippet.py`.
+`AIRFLOW_HOME` is root directory for the Airflow content. This is the default parent directory for Airflow assets such as DAGs and logs. If not specified otherwise, Airflow will search `$AIRFLOW_HOME/dags` for DAG files. In our case, this is `lab05/airflow/dags/`, so it will find `dag_snippet.py`.
 Once you run the command, you will see a few files being created. Again, log in to airflow. The status of the our little “demo” DAG from above should be visible in the web interface.
 
 This example demonstrated a simple Bash and Python script, but these tasks can run any arbitrary code. Think of running a Spark job, moving data between two buckets, sending an email, training a model, etc.

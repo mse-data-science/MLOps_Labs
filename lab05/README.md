@@ -10,7 +10,7 @@ by looking at how you can build and scale data processing pipelines - from noteb
 ## What you will learn
 
 - The basics of `Ploomber`, a tool for building data pipelines.
-- The basics of `Airflow`, a scheduler batch processing.
+- The basics of `Airflow`, a scheduler and batch processing platform.
 - How to use the two to convert a notebook into a batch processing pipeline.
 
 In this lab, you will learn about one way of converting a notebook-based experiment into a scalable pipeline.
@@ -43,7 +43,7 @@ There are a few quality criteria that one can evaluate:
 
 The Coffee Quality Institute (CQI) maintains a database about of coffee quality profiles and  [_somebody_](https://github.com/fatih-boyar/coffee-quality-data-CQI/tree/main) already wrote a web scraper for this data.
 
-Your coffee-addicted (but only modestly data-science-skilled) friend also stumbled upon a database of coffee reviews, that include 5 of the 9 coffee quality criteria, along with text descriptions of the coffee. They even prepared the following pipeline, for which you can find a notebook in `lab02/coffe_analytics`:
+Your coffee-addicted (but only modestly data-science-skilled) friend also stumbled upon a database of coffee reviews, that include 5 of the 9 coffee quality criteria, along with text descriptions of the coffee. They even prepared the following pipeline, for which you can find a notebook in `lab05/coffee_analytics`:
 
 ```mermaid
 flowchart TD
@@ -73,6 +73,7 @@ You can use the [Soopervisor](https://soopervisor.readthedocs.io/en/latest/tutor
 
 - For this simple example, use the bash preset as it's the easiest one to debug.
 - If you used `soorgeon` in the previous task, the (data) paths will be hardcoded. You will have to manually edit these paths to make the pipeline work.
+- The output of `soorgeon` can be a bit overwhelming. You are free to use it, but **we recommend you try to build the DAG by hand first**.
 
 Also, when debugging Airflow DAGs and tasks, there are a couple of handy features:
 
