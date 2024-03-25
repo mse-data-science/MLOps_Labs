@@ -404,3 +404,9 @@ where `tinyvit/` is the path to the directory containing the `model-settings.jso
 What do we do with the Docker image? We can run it locally, push it to a container registry, or deploy it to a cloud provider.
 Even better, we can leverage some of the most popular Kubernetes serving frameworks to scale our service beyond a single machine!
 We won't go into the details of how to do this in this lab, but you can find more information in the [`MLServer` documentation](https://mlserver.readthedocs.io/en/latest/user-guide/deployment/index.html). Maybe this is something you want to explore in your own projects. ;)
+
+### Monitoring and logging
+
+`MLServer` comes with built-in support for monitoring and logging. You can access metrics like request latency, request throughput, and more via a metrics API endpoint.
+
+This endpoint serves data in what is known as the [`OpenMetrics`-format](https://openmetrics.io/). There are many tools that can consume this format, such as Prometheus and Grafana. We won't go into the details of how to set up these tools in this lab, but you can find more information in the [`MLServer` documentation](https://mlserver.readthedocs.io/en/latest/user-guide/metrics/index.html). Maybe this is again something for your own projects. :D

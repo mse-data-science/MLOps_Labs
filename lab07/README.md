@@ -11,11 +11,31 @@ In this lab, we look at how to bridge the last gap - because your job as a data 
 - How to monitor models?
 - How to explain model output to your users?
 
-We will be using Seldon's open-source `MLServer` together with `alibi-detect` and `alibi-explain`.
+In the first half, we will be using Seldon's open-source `MLServer`, and in the second half, we will be building our own solution for detecting outliers, attacks, and drift.
 
 |Topic|Link|
 |:----|:---|
 |Deployment with `MLServer`| [`mlserver.md`](./mlserver.md) |
-|Detecting data drift with `alibi-detect`| [`alibi_detect.md`](./alibi_detect.md) |
-|Explaining models with `alibi-explain`| [`alibi-explain.md`](./alibi_explain.md) |
+|Detecting data drift| [`outliers_attacks_drifts.md`](./outliers_attacks_drifts.md) |
 
+## Additional Resources
+
+### Inference solutions
+
+`MLServer` is of course not the only solution for deploying models. Here are a few other solutions:
+
+- [TensorFlow Serving](https://www.tensorflow.org/tfx/guide/serving)
+- [TorchServe](https://pytorch.org/serve/)
+- [KFServer](https://kserve.github.io/website/0.11/)
+- [NVIDIA Triton Inference Server](https://www.nvidia.com/en-us/ai-data-science/products/triton-inference-server/)
+- ... and many more!
+
+### Monitoring solutions
+
+You do always have to build your own post-deployment monitoring solutions. Here are a few tools that can help you:
+
+- [NannyML](https://nannyml.readthedocs.io/)
+- [Alibi Detect](https://docs.seldon.io/projects/alibi-detect/en/stable/)
+- [Evidently AI](https://github.com/evidentlyai/evidently)
+- [Deepchecks Monitoring](https://docs.deepchecks.com/monitoring/stable/getting-started/welcome.html)
+- ... and, again, many more!

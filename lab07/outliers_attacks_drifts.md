@@ -1,6 +1,6 @@
 #  Detecting Outliers, Attacks, and Drift
 
-In the previous part, we discussed serving a model. In this section, we will discuss how to protect our model in the real world. We will discuss how to detect outliers, adversarial attacks, and drift using the Alibi Detect library.
+In the previous part, we discussed serving a model. In this section, we will discuss how to protect our model in the real world. We will discuss how to detect outliers, adversarial attacks, and drift.
 
 ## Outlier Detection
 
@@ -16,6 +16,7 @@ In [`notebooks/outlier_detection.ipynb`](notebooks/outlier_detection.ipynb), we 
 ## Adversarial Attack Detection
 
 In a previous lab, we discussed how to generate and defend against adversarial attacks. In this section, we will discuss how to detect adversarial attacks.
+The method introduced below was proposed in [Adversarial Detection and Correction by Matching Prediction Distributions](https://arxiv.org/pdf/2002.09364.pdf).
 
 If you think about it, adversarial attacks are not too different from outliers. So, you might be tempted to use the same approach to detect adversarial attacks as you would to detect outliers. However, there is an issue: (Variational) autoencoders are trained to find a transformation $T$ that reconstructs the input data $x$ as well as possible. This is done by minimizing the reconstruction error $L(x, T(x)) = \|x - x'\|^2$. However, these types of loss functions suffer from a fundamental flaw for the detection of adversarial attacks: they are not sensitive to small perturbations in the input data. This is because the loss function is minimized when the input data is reconstructed as well as possible, regardless of whether the input reconstruction error is due to an adversarial attack or not.
 
@@ -27,12 +28,22 @@ $M$ is the model we want to protect from adversarial attacks - e.g. a classifier
 
 ### Excursion: What is the Kullback-Leibler divergence?
 
-TODO
+We've been referring to the Kullback-Leibler divergence a lot, so let's take a moment to explain what it actually is and does. The Kullback-Leibler divergence is a measure of how one probability distribution $P$ differs from a second, reference probability distribution $Q$. Its definition depends on whether the distributions are discrete or continuous.
+
+For discrete distributions $P$ and $Q$ over some sample space $\mathcal{X}$, the Kullback-Leibler divergence is defined as:
+
+$$D_{KL}(P \| Q) = \sum\limits_{x \in \mathcal{X}} P(x) \log(\frac{P(x)}{Q(x)})$$
+
+In other words, the Kullback-Leibler divergence is the expectation of the logarithmic difference between the probabilities of the two distributions, weighted by the probabilities of the first distribution. Note that there are equivalent definitions.
+
+Similar definitions hold for continuous distributions. We will not go into the details here, but you can read more about the Kullback-Leibler divergence [here](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence).
 
 ### Back to the main topic
 
 In [`notebooks/adversarial_attack_detection.ipynb`](notebooks/adversarial_attack_detection.ipynb), we will again use the MNIST dataset to detect adversarial attacks using a model-dependent reconstruction error.
 
-## Outliers, attacks, and drift detection in the wild
+## Outliers, attacks, and drift detection with MLServer
 
-TODO
+In practice, we have to integrate the detection of outliers, attacks, and drift into our serving pipeline. This can be done by monitoring the input data distribution and the model's performance over time. When you think back to the previous part about `MLServer`, you might see a few ways to integrate these detection mechanisms into the serving pipeline. For example, you could add a new endpoint to the server that returns the reconstruction error of the input data. If you use a custom inference runtime (as we did in the previous part), you could then call this endpoint in the `predict` method.
+
+If you choose to use `alibi-detect`, a library that provides a wide range of outlier, adversarial attack, and drift detection algorithms, you can even rely on a [pre-built inference runtime](https://mlserver.readthedocs.io/en/latest/runtimes/alibi-detect.html)!
