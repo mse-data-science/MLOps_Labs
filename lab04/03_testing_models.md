@@ -7,7 +7,7 @@ For ML models, CI/CD concepts can be utilized to streamline the process of model
 - Dataset comparisons: Assure that the dataset is not drifting / spot data drift early.
 - Model training: Automate the model's training procedure on new (validated) training data.
 - Model validation: Evaluate the model's performance, calibrating model predictions, and identifying weak segments.
-- Model deployment
+- Model deployment: Upload your model to a model registry and connect it to a production environment.
 
 Here, we focus on CI for model training and validation. Data and deployment will be discussed in the upcoming labs.
 
@@ -300,7 +300,7 @@ You can find a skeleton in `deepchecks_advanced/check_attack.py`. Follow the ins
 
 ### More on adversarial attacks
 
-If you would like to learn more about adversarial attacks, we recommend the [Adversarial Machine Learning Reading List](https://nicholas.carlini.com/writing/2018/adversarial-machine-learning-reading-list.html) by Nicholas Carlini, a leading research on this topic.
+If you would like to learn more about adversarial attacks, we recommend the [Adversarial Machine Learning Reading List](https://nicholas.carlini.com/writing/2018/adversarial-machine-learning-reading-list.html) by Nicholas Carlini, a leading researcher on this topic.
 
 ### More on testing beyond performance
 

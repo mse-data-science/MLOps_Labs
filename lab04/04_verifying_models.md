@@ -59,7 +59,7 @@ set of transformations that help apply the neural network to this over-approxima
 
 ### Abstract interpretation: Intuition
 
-Let's assume your a drone operator and you want to fly your delivery drone (the blue dot) to the target (the orange box) to deliver some parcel.
+Let's assume you are a drone operator and you want to fly your delivery drone (the blue dot) to the target (the orange box) to deliver some parcel.
 You know that if you fly into the red zone (the infamous danger zone), you will make some people very angry - and you of course don't want to do that.
 
 ![Intuition for abstract interpretation, pt. 1](imgs/abstract_interpretation_intuition_1.png)
@@ -69,8 +69,7 @@ However, if you can guarantee that your drone will always stay close to this lin
 
 ![Intuition for abstract interpretation, pt. 2](imgs/abstract_interpretation_intuition_2.png)
 
-This region around the black line is the abstract domain. It's not perfect, it's an over-approximation as it is clearly wider than the optimal path,
-but it's still better than no guarantees at all!
+This region around the black line is the abstract domain. It's not perfect, it's an over-approximation as it is clearly wider than the optimal path, but it's still better than no guarantees at all!
 
 ### Abstract interpretation with boxes
 
@@ -82,8 +81,8 @@ a tensor $(c, h, w)$, you additionally get a lower and upper bound for every pix
 
 - Addition: $[a, b] +^\# [c, d] = [a + c, b + d]$
 - Negation: $-^\#[a, b] = [-b, -a]$
-- ReLU: $ReLU^\#[a, b] = ReLU(a, b)$
-- Scalar multiplication: $\lambda\cdot^\#[a, b] = [\lambda\cdot a, \lambda\cdot b]$
+- ReLU: $ReLU^\#[a, b] = [ReLU(a), ReLU(b)]$
+- Scalar multiplication: $\lambda\cdot^\#[a, b] = [\lambda\cdot a, \lambda\cdot b]; (\lambda \geq 0)$
 
 Try box propagation in the [box_transformer.ipynb](./verification/box_transformer.ipynb) notebook!
 
@@ -104,8 +103,7 @@ A mixed integer linear program is a linear program with the added constraint tha
 As demonstrated in the seminal paper on this topic, [Evaluating Robustness of Neural Networks with Mixed Integer Programming](https://arxiv.org/pdf/1711.07356.pdf),
 piece-wise linear neural networks can be encoded as linear programs.
 
-This approach is complete but comes at a high cost: MILPs are NP-complete, which means that no efficient (in the sense that it runs in polynomial time - read: fast)
-is known.
+This approach is complete but comes at a high cost: MILPs are NP-complete, which means that no efficient (in the sense that it runs in polynomial time - read: fast) is known.
 
 ---
 

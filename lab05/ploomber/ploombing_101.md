@@ -1,6 +1,6 @@
 # Ploombing 101
 
-###### This introduction to Ploomber is based on the [official Ploomber documentation](https://docs.ploomber.io/en/latest)
+This introduction to Ploomber is based on the [official Ploomber documentation](https://docs.ploomber.io/en/latest)
 
 ## Learning Goals
 

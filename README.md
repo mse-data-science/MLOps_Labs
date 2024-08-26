@@ -48,6 +48,9 @@ Most labs will make use of [Jupyter Notebooks](https://jupyter.org/), which you 
 
 Below we show you two ways of running the lab notebooks that are known to work.
 
+**We recommend beginning each lab by running the notebooks locally, and only switching to Colab for longer computations.**
+Images sometimes do not render correctly in Colab, and some features might not work as expected.
+
 #### Running locally
 
 To run notebooks locally, proceed as follows:
@@ -86,7 +89,7 @@ github_pat_11BCJDENQ0S9Ks55YIUe7d_MTNrzaL6mtB8OcokrSRiZU8u3zUCMHvWRLZU8stliaZ2VM
 6. In the code cell, add the following:
 
 ```shell
-!git clone https://token@github.com/bil-y/MLOps_Labs
+!git clone https://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@github.com/bil-y/MLOps_Labs
 %cd MLOps_Labs/path/to/notebook
 ```
 

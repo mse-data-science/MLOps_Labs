@@ -17,6 +17,7 @@ MLFLow is an end-to-end platform with several components and be used for much mo
 - [Recipes][7]: Blueprints for structuring (real-world) ML projects and deployments.
 
 In this lab, we will primarily be using the Tracking. Other components follow in future Labs.
+Note that you have to use your own computer for the MLflow parts. Google Colab has dropped support for background processes, which we need for this lab.
 
 ## The MLflow UI
 
