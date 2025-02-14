@@ -1,6 +1,6 @@
 # GCP Group Setup Guide
 
-Google Cloud Platform (GCP) provides a framework for building and managing applications and services. A `GCP Project` acts as the primary entity under which we manage the group's users, billing and services. This guide shows you how to set up your group and redeem your credits. **_Note:_** Only one person per group needs to complete these steps!
+Google Cloud Platform (GCP) provides a framework for building and managing applications and services. A `GCP Project` acts as the primary entity under which we manage the group's users, billing and services. This guide shows you how to set up your group and redeem your credits. **_Note:_ Only one person per group needs to complete these steps!**
 
 ## Create Project
 
