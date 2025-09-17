@@ -99,6 +99,8 @@ Use the knowledge you've gained today to build a chatbot powered by an LLM from 
 
 Don't forget that the `transformers` library comes with [utilities for chat models](https://huggingface.co/docs/transformers/main/chat_templating#advanced-template-writing-tips)!
 
+Hint: A simple example can be found in [`snippets/chatbot_solution.py`](./snippets/chatbot_solution.py)
+
 ### Going further
 
 Here are some ideas to enhance your app:
