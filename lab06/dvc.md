@@ -6,7 +6,7 @@ We recommend installing `dvc` using `conda` as this lab comes with
 its own `conda` environment.
 
 ```raw
-conda create -f env.yaml
+conda env create -f env.yaml
 conda activate mlops-lab-06
 conda install dvc
 ```
@@ -110,7 +110,7 @@ A DVC workspace is analogous to a Git working tree. It is simply the currently v
 
 ## DVC hands-on
 
-Enough theory, let's get started. First, create a git repository on github.zhaw.ch.
+Enough theory, let's get started. First, create a git repository on github.
 Then, in your git repository, run
 
 ```shell
@@ -162,7 +162,7 @@ dvc get-url <URL>
 Once that's completed, extract the tarball
 
 ```shell
-# Extract te contents of the tarball.
+# Extract the contents of the tarball.
 tar -xvf 102flowers.tgz
 
 # Rename the output folder
@@ -242,7 +242,7 @@ _Hint_: You can designate a remote the _default remote_ by adding `-d` or `--def
     <summary>Solution</summary>
 
 ```shell
-dvc remote add temporary /tmp/dvcdata
+dvc remote add -d temporary /tmp/dvcdata
 ```
 
 </details>

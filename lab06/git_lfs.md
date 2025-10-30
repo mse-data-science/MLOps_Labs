@@ -24,7 +24,7 @@ the official git repository.
 
 #### On Linux
 
-Debian and RPM packages are available from packagecloud, see the [Linux installation instructions](INSTALLING.md).
+Debian and RPM packages are available from packagecloud, see the [Linux installation instructions](https://github.com/git-lfs/git-lfs/blob/main/INSTALLING.md).
 
 #### On macOS
 
@@ -46,7 +46,7 @@ git lfs install
 
 Note that you only have to run this once!
 Next, we need a git repository and a big file. For the git repository, we ask you to create one on
-github.zhaw.ch. For our big file, we will be using [`oxford_flowers102`](https://www.tensorflow.org/datasets/catalog/oxford_flowers102),
+Github. For our big file, we will be using [`oxford_flowers102`](https://www.tensorflow.org/datasets/catalog/oxford_flowers102),
 a dataset of flowers, which we ask you to download from [here](https://www.robots.ox.ac.uk/%7Evgg/data/flowers/102/). We only need the images.
 
 Once you have downloaded the tarball, create a directory `data` in your new repository and move
