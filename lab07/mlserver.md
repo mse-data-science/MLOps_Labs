@@ -298,6 +298,10 @@ class TinyViTModel(MLModel):
 
 ### Interlude: MLServer Runtimes
 
+**The below example is NOT WORKING as of Nov 2025**
+
+**Please follow instead the transformer example provided at https://github.com/SeldonIO/MLServer/tree/master/docs/examples/huggingface**
+
 So far, we've been writing our own services. However, `MLServer` comes with a range of runtimes built-in.
 Inference runtimes allow you to define how your model should be used within `MLServer`.
 
@@ -312,7 +316,7 @@ Why use runtimes? It's a lot faster. The service we wrote above, translates to t
     "parameters": {
         "extra": {
             "task": "image-classification",
-            "pretrained_model": "tiny_vit_5m_224.dist_in22k",
+            "pretrained_model": "tiny_vit_5m_224.dist_in22k"
         }
     }
 }

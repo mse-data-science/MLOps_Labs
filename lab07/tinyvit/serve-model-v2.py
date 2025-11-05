@@ -2,10 +2,20 @@ from mlserver import MLModel
 from mlserver.codecs import decode_args
 import numpy as np
 from PIL import Image
+import torch
 import timm
 
+import json
+import os
 
 class TinyViTModel(MLModel):
+
+    def __init__(self, *args, **kwargs):
+        super(TinyViTModel, self).__init__(*args, **kwargs)
+        dirname = os.path.dirname(__file__)
+        with open(f'{dirname}/imagenet-22k.json') as f:
+            d = json.load(f)
+        self.label_dict = d
 
     async def load(self) -> bool:
         self._model = timm.create_model("tiny_vit_5m_224.dist_in22k", pretrained=True)
@@ -21,5 +31,9 @@ class TinyViTModel(MLModel):
         img = Image.fromarray(payload)
         img = self._transforms(img).unsqueeze(0)
         output = self._model(img)
-        output = output.softmax(dim=1)
-        return output.detach().numpy()
+        _, top5_class_indices = torch.topk(output.softmax(dim=1) * 100, k=5)
+        top5_classes = [self.label_dict[str(idx)] for idx in top5_class_indices.squeeze().tolist()]
+        return np.array(top5_classes)
+
+
+

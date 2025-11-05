@@ -1,11 +1,5 @@
 {
     "name": "tinyvit",
-    "implementation": "mlserver_huggingface.HuggingFaceRuntime",
-    "parameters": {
-        "extra": {
-            "task": "image-classification",
-            "pretrained_model": "timm/tiny_vit_5m_224.dist_in22k",
-            "optimum_model": false
-        }
-    }
+    "implementation": "serve-model.TinyViTModel"
 }
+
