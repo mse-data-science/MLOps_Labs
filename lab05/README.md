@@ -23,7 +23,7 @@ To get you up to speed with Ploomber and Airflow we provide you with a short int
 | Required Reading |Link|
 |:------------------|:---|
 | Ploomber 101 | [Click me](./ploomber/ploombing_101.md) |
-| Airflow 101  | [Click me](./airflow/venting_101.md) |
+| Airflow 101  | [Click me](./airflow/airflow_101.md) |
 
 ## A multi-modal coffee pipeline
 

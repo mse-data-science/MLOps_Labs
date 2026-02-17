@@ -1,3 +1,5 @@
+# + tags=["parameters"]
+
 from pathlib import Path
 import pandas as pd
 import numpy as np
@@ -11,7 +13,6 @@ def load(product):
     )
     df.to_csv(product, index=False)
 
-
 def clean(product, upstream):
     data = pd.read_csv(upstream['load'])
     data['Cases'] = data['Cases'].str.replace(',', '')
@@ -20,17 +21,15 @@ def clean(product, upstream):
     data['Tests'] = pd.to_numeric(data['Tests'])
     data.to_csv(product, index=False)
 
-
 def split(product, upstream):
     data = pd.read_csv(upstream['clean'])
     X = data["Tests"].values.reshape(-1, 1)
     y = data["Cases"].values.reshape(-1, 1)
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
-    X_train.to_csv(product['X_train'], index=False)
-    X_test.to_csv(product['X_test'], index=False)
-    y_train.to_csv(product['y_train'], index=False)
-    y_test.to_csv(product['y_test'], index=False)
-
+    np.savetxt(product['X_train'], X_train, delimiter=',')
+    np.savetxt(product['y_train'], y_train, delimiter=',')
+    np.savetxt(product['X_test'], X_test, delimiter=',')
+    np.savetxt(product['y_test'], y_test, delimiter=',')   
 
 def linear_regression(product, upstream):
     X_train = pd.read_csv(upstream['split']['X_train'])

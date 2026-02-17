@@ -81,9 +81,7 @@ While this section covers everything that we need for the purpose of this lab, t
 
 ### Tasks: Scripts & Notebooks
 
-One way of specifying tasks is using scripts or notebooks. You can find an example pipeline to follow along in `5/ploomber/scripts`.
-
-Jupyter notebooks files (.ipynb) contain both code and output; while convenient, keeping code and outputs in the same file makes version control (i.e., git) difficult. Ploomber thus recommends using scripts but will copy and convert your scripts to notebooks. This allows you to still have the benefits on notebooks when debugging the pipeline.
+One way of specifying tasks is using scripts or notebooks. Jupyter notebooks files (.ipynb) contain both code and output; while convenient, keeping code and outputs in the same file makes version control (i.e., git) difficult. Ploomber thus recommends using scripts but will copy and convert your scripts to notebooks. This allows you to still have the benefits on notebooks when debugging the pipeline.
 
 Ploomber further recommends using `# %%` comments to group parts of your script into notebook cells:
 
@@ -136,8 +134,6 @@ tasks:
 ### Tasks: Functions
 
 Functions can be tasks too!
-
-You can find an example pipeline to follow along in `lab05/ploomber/functions`.
 
 #### `upstream` and `product`
 
