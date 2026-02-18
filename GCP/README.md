@@ -1,6 +1,6 @@
 # MLOps Project
 
-In the course project, you will have the opportunity to apply the knowledge you have gained in the course to a real-world problem. For this, we provide you with free credits for Google Cloud Platform, which you can use to set up your MLOps pipeline. You will work in groups of three students. Once you have formed a group, you should follow the instructions in the [`GCP Group Setup Guide`](./create_group.md) to set up your group and redeem your credits.
+In the course project, you will have the opportunity to apply the knowledge you have gained in the course to a real-world problem. For this, we provide you with free credits for Google Cloud Platform, which you can use to set up your MLOps pipeline. You will work in groups of students. Once you have formed a group, you should follow the instructions in the [`GCP Group Setup Guide`](./create_group.md) to set up your group and redeem your credits.
 
 ## Recommended Cloud Setup
 
@@ -22,7 +22,7 @@ Note that on the right-hand side of the page, you can see an estimate of the cos
 
 For everything that goes beyond a simple VM, the Google Cloud Platform documentation is your number one resource for any questions you might have.
 
-> Your total budget is limited to three coupons of $50 each. Make sure to use them wisely! Always stop your resources when you are not using them to avoid unnecessary costs!
+> Your total budget is limited to (group size) x $50. Make sure to use them wisely! Always stop your resources when you are not using them to avoid unnecessary costs!
 
 ## MLOps Tools
 
