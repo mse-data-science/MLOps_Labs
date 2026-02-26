@@ -1,0 +1,13 @@
+[project]
+name = "lab01"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "jupyter>=1.1.1",
+    "pytorch-lightning==2.2.0",
+    "smart-open==6.4.0",
+    "torch==2.6.0",
+    "torchvision==0.21.0",
+]
