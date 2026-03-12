@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "cmdstanpy==1.2.4",
     "data-morph-ai==0.2.0",
     "gpy>=1.13",
     "hebo==0.3.6",

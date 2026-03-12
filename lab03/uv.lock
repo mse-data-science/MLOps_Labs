@@ -465,7 +465,7 @@ wheels = [
 
 [[package]]
 name = "cmdstanpy"
-version = "1.3.0"
+version = "1.2.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "numpy" },
@@ -473,9 +473,9 @@ dependencies = [
     { name = "stanio" },
     { name = "tqdm" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/40/0a/cc5cbec39155e5ab76b96cbb1acd23bd7f19a4e2203fdf9948a7cbec65b8/cmdstanpy-1.3.0.tar.gz", hash = "sha256:60b10d110993bd8345735994786b2b17782fdc5530a6adbc0cd8ec836d82c2b9", size = 122922, upload-time = "2025-10-20T19:25:08.128Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/26/cc/42b48308bc95c6387d81da7b96aaa6c0030b6a1bc7fbcd32de9062d5ab5f/cmdstanpy-1.2.4.tar.gz", hash = "sha256:ad586be0b9f4c654ecbdc4af4541f4d282f99175956cda88cc5eb873719356cc", size = 114097, upload-time = "2024-06-17T14:29:40.277Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/ef/04/7bbe85aa6abf99236cc657ceb5a629f63a82a01910a095533111ea3860f3/cmdstanpy-1.3.0-py3-none-any.whl", hash = "sha256:67d83fbb823948c3ca8a84912359d6c0a5c616a62025526dba5f43a1d970bc52", size = 99147, upload-time = "2025-10-20T19:25:06.306Z" },
+    { url = "https://files.pythonhosted.org/packages/5d/12/6522f3de83ca690aa52f4b8c88a1e203abb1e2d75c31669dc004949143cd/cmdstanpy-1.2.4-py3-none-any.whl", hash = "sha256:ad60f8ca17050216ab7140e13aa493628d88af8a689f17253a5ad294a9826c78", size = 94486, upload-time = "2024-06-17T14:29:38.333Z" },
 ]
 
 [[package]]
@@ -1807,6 +1807,7 @@ name = "lab03"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "cmdstanpy" },
     { name = "data-morph-ai" },
     { name = "gpy" },
     { name = "hebo" },
@@ -1819,6 +1820,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
+    { name = "cmdstanpy", specifier = "==1.2.4" },
     { name = "data-morph-ai", specifier = "==0.2.0" },
     { name = "gpy", specifier = ">=1.13" },
     { name = "hebo", specifier = "==0.3.6" },
